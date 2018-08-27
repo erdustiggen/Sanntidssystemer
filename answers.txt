@@ -1,0 +1,35 @@
+Task A:
+- sleep() used 0 system time, this is because its not a system(os) call?
+- busy_wait() used 0.996s of system time, this is because it uses continuous system calls in order to access the timers.
+- our implementation of busy wait using times() also uses 0.996s system time.
+
+Task B:
+__rdtsc():
+ - resolution: 17 -30ns (see TaskB/rdscRes.png)
+ - access: 8.65ns
+
+clock_gettime():
+- resolution: 15-24ns (see clk_gtime.png)
+- access: 21.87ns
+
+times():
+- resolution: 0, only changes 100 times per second
+- access: 260ns
+
+Task C:
+240ns
+
+Task D:
+The computer crashed, the swap went to 40% because the RAM got filled up.
+Difference between RAM and Swap:
+Swap acts as RAM, but it exists on the hard drive. This makes it much slower.
+
+When we added:
+matrix[y] = malloc(x_dim*sizeof(long));
+the process got killed.
+
+Ask why something different happens!!
+
+Task E:
+
+The program gives an error, because we exceed the capacity of the array. When using -fsanitize=address, we get more information, and we can see where the overflow happens.
